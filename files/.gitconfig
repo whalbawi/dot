@@ -4,7 +4,7 @@
 	tool = vimdiff
 [alias]
 	sl = log --date=short --format='%C(blue)%h  %C(yellow)%ad %<(20)%Cred%aN%Creset %<(80,trunc)%s'
-	carn = commit --amend --no-edit --reset-author
+	carn = commit --amend --reset-author --no-edit
 	pof = push origin -f
 	su = "!f() { git push origin --set-upstream $(git branch --show-current); }; f"
 [merge]
@@ -15,3 +15,5 @@
 	prompt = false
 [pull]
 	rebase = true
+[core]
+	excludesFile = ~/.gitignore_global
