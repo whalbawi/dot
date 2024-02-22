@@ -1,8 +1,8 @@
 filetype plugin indent on
 syntax on
 set nu
-set tw=97
-set cc=98
+set tw=100
+set cc=101
 set formatoptions=croqt
 set tabstop=4
 set softtabstop=4
