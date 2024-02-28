@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPTS_DIR=$(dirname $0)
+SCRIPTS_DIR=$(dirname $(realpath ${BASH_SOURCE[0]}))
 source $SCRIPTS_DIR/term.sh
 
 HOST=$1
@@ -13,7 +13,7 @@ print-bold "Target host: $HOST\n"
 print-bold "Files:\n"
 xargs -n1 -I% echo "    %" <<< $FILES
 
-scp $FILES $1:~/ > /dev/null
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $FILES $1:~/
 
 print-bgreen "Upload complete!\n"
 
