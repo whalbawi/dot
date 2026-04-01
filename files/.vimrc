@@ -18,3 +18,10 @@ match ExtraWhitespace /\s\+$\|\t\+/
 
 highlight DiffText cterm=none ctermbg=28
 highlight DiffChange cterm=none ctermbg=28
+
+function FormatOnSave()
+    let l:formatdiff = 1
+    py3f /usr/local/share/clang-format.py
+endfunction
+
+auto BufWritePre *.h,*.cpp,*.c call FormatOnSave()

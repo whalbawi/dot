@@ -1,5 +1,6 @@
 [user]
 	name = Wael Halbawi
+	email = waelhalbawi@gmail.com
 [diff]
 	tool = vimdiff
 [alias]
@@ -18,3 +19,5 @@
 [core]
 	excludesFile = ~/.gitignore_global
 	editor = vim
+[init]
+	defaultBranch = main
