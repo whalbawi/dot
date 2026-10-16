@@ -6,6 +6,7 @@ source $SCRIPTS_DIR/term.sh
 HOST=$1
 FILES="\
 $HOME/.tmux.conf \
+$HOME/.tmux-center.conf \
 $HOME/.tmux-linux.conf \
 $HOME/.vimrc"
 print-bblue "Upload dot files to remote server\n"
@@ -16,4 +17,3 @@ xargs -n1 -I% echo "    %" <<< $FILES
 scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $FILES $1:~/
 
 print-bgreen "Upload complete!\n"
-
