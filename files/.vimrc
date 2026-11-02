@@ -1,17 +1,23 @@
+set nocp
+
 filetype plugin indent on
 syntax on
+
 set nu
 set tw=100
 set cc=101
 set formatoptions=croqt
+set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set backspace=indent,eol,start
 
-set clipboard=unnamed
-set nocp
+
+if has('clipboard')
+    set clipboard=unnamedplus
+endif
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\|\t\+/
