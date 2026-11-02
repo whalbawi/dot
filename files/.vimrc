@@ -25,9 +25,17 @@ match ExtraWhitespace /\s\+$\|\t\+/
 highlight DiffText cterm=none ctermbg=28
 highlight DiffChange cterm=none ctermbg=28
 
-function FormatOnSave()
-    let l:formatdiff = 1
-    py3f /usr/local/share/clang-format.py
-endfunction
+if exists('$VIM_CLANG_FORMAT')
+    let s:clang_format = $VIM_CLANG_FORMAT
+else
+    let s:clang_format = '/usr/local/share/clang-format.py'
+endif
 
-auto BufWritePre *.h,*.cpp,*.c call FormatOnSave()
+if filereadable(s:clang_format)
+    function FormatOnSave()
+        let l:formatdiff = 1
+        execute 'py3file '. fnameescape(s:clang_format)
+    endfunction
+
+    auto BufWritePre *.h,*.cpp,*.c call FormatOnSave()
+endif
